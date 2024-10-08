@@ -1,0 +1,3 @@
+#! /bin/sh
+
+rclone mount share_point_green_sight: ./share_point 
