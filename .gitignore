@@ -301,3 +301,6 @@ pyrightconfig.json
 
 # sharepoint virtual connection
 share_point
+
+# remove repos directory
+repos
