@@ -71,11 +71,14 @@ def load_sentinel_data_from_dir(path: Union[str, Path], condition: Callable):
     df_month.index = [datetime(year, int(month), 1) for month in df_month.index]
     df_month.columns.names =  ("shape", "band")
 
+    # remove duplicate replacing with their mean- this should not be needed, but is due to a mistake in the data
+    df_month = df_month.groupby(level=[0, 1], axis=1).mean()
+
     # add greenbelt information from json dict. 
     lookup_path = DIR_DATA / "id_lookup/id_lookup.json"
     with open(lookup_path, "r") as in_file:
         D_lookup = json.load(in_file)
-    greenbelts = [D_lookup[code] for code, band in df_month.columns]
+    greenbelts = [D_lookup[code]["GB_Name"] for code, band in df_month.columns]
 
     # add greenbelts to column MultiIndex
     df_month.columns = pd.MultiIndex.from_tuples([(gb, *cols) for gb, cols in zip(greenbelts, df_month.columns)])
