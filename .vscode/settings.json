@@ -6,10 +6,25 @@
         "bwdrvi",
         "cari",
         "ccci",
+        "gemi",
+        "gndvi",
         "greensight",
+        "ipvi",
+        "ireci",
+        "mcari",
+        "mndwi",
+        "msavi",
+        "mtci",
+        "ndpi",
+        "ndti",
         "NDVI",
         "NDWI",
+        "pssra",
+        "reip",
         "SAVI",
-        "swir"
+        "swir",
+        "tndvi",
+        "TSAVI",
+        "wdvi"
     ]
 }
