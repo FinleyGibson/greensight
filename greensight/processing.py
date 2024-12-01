@@ -1,4 +1,3 @@
-
 from typing import Callable, Union
 from pathlib import Path
 import re
@@ -25,10 +24,14 @@ def load_sentinel_data_from_dir(path: Union[str, Path], condition: Callable):
     df = pd.concat(data, axis=0)
 
     # get unique band identifiers
-    band_inds = pd.unique([i.split("_")[1] for i in df.columns.unique() if i.split("_")[0].isnumeric()])
-    
+    band_inds = pd.unique(
+        [i.split("_")[1] for i in df.columns.unique() if i.split("_")[0].isnumeric()]
+    )
+
     # get month identifiers
-    month_inds = pd.unique([i.split("_")[0] for i in df.columns.unique() if i.split("_")[0].isnumeric()])
+    month_inds = pd.unique(
+        [i.split("_")[0] for i in df.columns.unique() if i.split("_")[0].isnumeric()]
+    )
 
     # index by shape code
     df.index = df["LAD_CD"]
@@ -39,14 +42,13 @@ def load_sentinel_data_from_dir(path: Union[str, Path], condition: Callable):
     months = []
     inds = []
     for month in month_inds:
-
         # generate desired columns
-        cols = [month+"_"+band for band in band_inds]
+        cols = [month + "_" + band for band in band_inds]
 
-        # create df of desired columns 
+        # create df of desired columns
         df_month = df[cols].copy()
 
-        # convert from a DataFrame of rows: shapes, columns: bands for a single month 
+        # convert from a DataFrame of rows: shapes, columns: bands for a single month
         # to a single row of rows: month, columns: (shape, band)
         row_month = df_month.stack().to_frame().T
 
@@ -55,13 +57,9 @@ def load_sentinel_data_from_dir(path: Union[str, Path], condition: Callable):
         row_month.columns = pd.MultiIndex.from_tuples(new_cols)
 
         # add to stack
-        if row_month.shape[1] == 740:
-            months.append(row_month)
-            # add month name to index. 
-            inds.append(month)
-        else:
-            # row is missing data 
-            pass
+        months.append(row_month)
+        # add month name to index.
+        inds.append(month)
 
     df_month = pd.concat(months, axis=0)
     df_month.index = np.array(inds).astype(int) + 1
@@ -69,19 +67,21 @@ def load_sentinel_data_from_dir(path: Union[str, Path], condition: Callable):
     df_month = df_month.sort_index()
     df_month.index.name = "date"
     df_month.index = [datetime(year, int(month), 1) for month in df_month.index]
-    df_month.columns.names =  ("shape", "band")
+    df_month.columns.names = ("shape", "band")
 
     # remove duplicate replacing with their mean- this should not be needed, but is due to a mistake in the data
     df_month = df_month.groupby(level=[0, 1], axis=1).mean()
 
-    # add greenbelt information from json dict. 
+    # add greenbelt information from json dict.
     lookup_path = DIR_DATA / "id_lookup/id_lookup.json"
     with open(lookup_path, "r") as in_file:
         D_lookup = json.load(in_file)
     greenbelts = [D_lookup[code]["GB_Name"] for code, band in df_month.columns]
 
     # add greenbelts to column MultiIndex
-    df_month.columns = pd.MultiIndex.from_tuples([(gb, *cols) for gb, cols in zip(greenbelts, df_month.columns)])
-    df_month.columns.names =  ("greenbelt", "shape", "band")
+    df_month.columns = pd.MultiIndex.from_tuples(
+        [(gb, *cols) for gb, cols in zip(greenbelts, df_month.columns)]
+    )
+    df_month.columns.names = ("greenbelt", "shape", "band")
 
     return df_month
