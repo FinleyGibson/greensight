@@ -1,0 +1,628 @@
+[
+  {
+    "token_type": 8,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "Meeting Notes:"
+      }
+    ],
+    "level": 1
+  },
+  {
+    "token_type": 1,
+    "content": "\n"
+  },
+  {
+    "token_type": 8,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "Current issues:"
+      }
+    ],
+    "level": 2
+  },
+  {
+    "token_type": 3,
+    "listElements": [
+      {
+        "marker": "1",
+        "innerBlocks": [
+          {
+            "token_type": 0,
+            "inlineElements": [
+              {
+                "token_type": 9,
+                "content": "Annual fluctuation"
+              }
+            ]
+          },
+          {
+            "token_type": 1,
+            "content": "\n"
+          },
+          {
+            "token_type": 3,
+            "listElements": [
+              {
+                "marker": "-",
+                "innerBlocks": [
+                  {
+                    "token_type": 0,
+                    "inlineElements": [
+                      {
+                        "token_type": 9,
+                        "content": "All bands and, by extension, indices contain a component which is periodic over an annual cycle.\n"
+                      }
+                    ]
+                  }
+                ],
+                "blankSeparated": false
+              },
+              {
+                "marker": "-",
+                "innerBlocks": [
+                  {
+                    "token_type": 0,
+                    "inlineElements": [
+                      {
+                        "token_type": 9,
+                        "content": "This annual fluctuation is the major component of the signal—dominating the correlations. \n"
+                      }
+                    ]
+                  }
+                ],
+                "blankSeparated": false
+              }
+            ],
+            "ordered": false
+          }
+        ],
+        "blankSeparated": false
+      },
+      {
+        "marker": "2",
+        "innerBlocks": [
+          {
+            "token_type": 0,
+            "inlineElements": [
+              {
+                "token_type": 9,
+                "content": "Lag"
+              }
+            ]
+          },
+          {
+            "token_type": 1,
+            "content": "\n"
+          },
+          {
+            "token_type": 3,
+            "listElements": [
+              {
+                "marker": "-",
+                "innerBlocks": [
+                  {
+                    "token_type": 0,
+                    "inlineElements": [
+                      {
+                        "token_type": 9,
+                        "content": "It may be that satellite bands/indices lag behind the JULES signal (or vice versa). \n"
+                      }
+                    ]
+                  }
+                ],
+                "blankSeparated": false
+              },
+              {
+                "marker": "-",
+                "innerBlocks": [
+                  {
+                    "token_type": 0,
+                    "inlineElements": [
+                      {
+                        "token_type": 9,
+                        "content": "This "
+                      },
+                      {
+                        "token_type": 12,
+                        "content": "may",
+                        "level": 1
+                      },
+                      {
+                        "token_type": 9,
+                        "content": " make things appear less correlated than they are in reality. \n"
+                      }
+                    ]
+                  }
+                ],
+                "blankSeparated": false
+              }
+            ],
+            "ordered": false
+          }
+        ],
+        "blankSeparated": true
+      }
+    ],
+    "ordered": true
+  },
+  {
+    "token_type": 8,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "Solutions"
+      }
+    ],
+    "level": 2
+  },
+  {
+    "token_type": 8,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "1. Annual Fluctuations "
+      }
+    ],
+    "level": 3
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "The time-series for a particular band/index output "
+      },
+      {
+        "token_type": 14,
+        "content": " b ",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": ", in a particular greenbelt "
+      },
+      {
+        "token_type": 14,
+        "content": " g ",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": ", is given by some unknown function "
+      },
+      {
+        "token_type": 14,
+        "content": " f_{b,g} ",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": ":"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\mathbf{y}_{b,g} = f_{b,g}(\\mathbf{t})\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "where"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\begin{aligned}\n    \\mathbf{t} &= \\{ t_{y} \\}_{y=2016,\\dots,2025} \\\\\n    \\mathbf{t}_y &= \\{ t_{m} \\}_{m=1,\\dots,12}\n\\end{aligned}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": " \nand for a single year,"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\mathbf{y}_{b,g,y} = f_{b,g}(\\mathbf{t_y})\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "We will compute the average time-series for a particular band in a particular greenbelt:"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\bar{\\mathbf{y}}_{b,g} = \\frac{1}{(2025-2016)} \\sum_{y=2016}^{2025} \\mathbf{y}_{b,g,y}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "Then calculate the deviation from this mean "
+      },
+      {
+        "token_type": 14,
+        "content": "\\mathbf{\\hat{y}}_{b,g,y}",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": " as:"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\mathbf{\\hat{y}}_{b,g,y} = \\mathbf{y}_{b,g,y} - \\bar{\\mathbf{y}}_{b,g}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "Similarly, JULES predictions are given by known functions: "
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\begin{aligned}\n    \\mathbf{y}_{\\text{soil}} = h_{s, g}(\\mathbf{t}) \\\\\n    \\mathbf{y}_{\\text{veg}} = h_{v, g}(\\mathbf{t})\n\\end{aligned}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "We can compute their means:"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\begin{aligned}\n    \\bar{\\mathbf{y}}_{\\text{soil}} = \\frac{1}{(2025-2016)} \\sum_{y=2016}^{2025} h_{s, g}(\\mathbf{t_y}) \\\\\n    \\bar{\\mathbf{y}}_{\\text{veg}} = \\frac{1}{(2025-2016)} \\sum_{y=2016}^{2025} h_{v, g}(\\mathbf{t_y})\n\\end{aligned}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "And their deviations:"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\begin{aligned}\n    \\mathbf{\\hat{y}}_{\\text{soil}} = \\mathbf{y}_{\\text{soil}} - \\bar{\\mathbf{y}}_{\\text{soil}} \\\\\n    \\mathbf{\\hat{y}}_{\\text{veg}} = \\mathbf{y}_{\\text{veg}} - \\bar{\\mathbf{y}}_{\\text{veg}}\n\\end{aligned}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "We then compute the Pearson correlations of "
+      },
+      {
+        "token_type": 14,
+        "content": " \\mathbf{\\hat{y}}_{b,g} ",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": " with "
+      },
+      {
+        "token_type": 14,
+        "content": " \\mathbf{\\hat{y}}_{\\text{soil}} ",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": " and "
+      },
+      {
+        "token_type": 14,
+        "content": " \\mathbf{\\hat{y}}_{\\text{veg}} ",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": ", respectively:"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\begin{aligned}\nc^{\\text{soil}}_{b,g} = \\operatorname{Corr}(\\mathbf{\\hat{y}}_{b,g}, \\mathbf{\\hat{y}}_{\\text{soil}}) \\\\\nc^{\\text{veg}}_{b,g} = \\operatorname{Corr}(\\mathbf{\\hat{y}}_{b,g}, \\mathbf{\\hat{y}}_{\\text{veg}})\n\\end{aligned}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "where "
+      },
+      {
+        "token_type": 14,
+        "content": " \\operatorname{Corr} ",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": " is the Pearson Correlation Coefficient, given by:"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\operatorname{Corr}(\\mathbf{x}, \\mathbf{y}) = \\frac{\\sum (x_i - \\bar{x}) (y_i - \\bar{y})}{\\sqrt{\\sum (x_i - \\bar{x})^2} \\sqrt{\\sum (y_i - \\bar{y})^2}}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 8,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "Output Matrices:"
+      }
+    ],
+    "level": 3
+  },
+  {
+    "token_type": 1,
+    "content": "\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "We can then compute and visualize the following matrices:"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\begin{array}{ccc}\nM_{\\text{soil}} & & M_{\\text{veg}} \\\\\n\\begin{bmatrix}\nc^{\\text{soil}}_{b_1 g_1} & c^{\\text{soil}}_{b_1 g_2} & \\cdots & c^{\\text{soil}}_{b_1 g_m} \\\\\nc^{\\text{soil}}_{b_2 g_1} & c^{\\text{soil}}_{b_2 g_2} & \\cdots & c^{\\text{soil}}_{b_2 g_m} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nc^{\\text{soil}}_{b_n g_1} & c^{\\text{soil}}_{b_n g_2} & \\cdots & c^{\\text{soil}}_{b_n g_m}\n\\end{bmatrix}\n & & \n\\begin{bmatrix}\nc^{\\text{veg}}_{b_1 g_1} & c^{\\text{veg}}_{b_1 g_2} & \\cdots & c^{\\text{veg}}_{b_1 g_m} \\\\\nc^{\\text{veg}}_{b_2 g_1} & c^{\\text{veg}}_{b_2 g_2} & \\cdots & c^{\\text{veg}}_{b_2 g_m} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nc^{\\text{veg}}_{b_n g_1} & c^{\\text{veg}}_{b_n g_2} & \\cdots & c^{\\text{veg}}_{b_n g_m}\n\\end{bmatrix}\n\\end{array}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "where "
+      },
+      {
+        "token_type": 14,
+        "content": "n",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": " is the number of bands/indices and "
+      },
+      {
+        "token_type": 14,
+        "content": "m",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": " is the number of greenbelts."
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 4
+  },
+  {
+    "token_type": 1,
+    "content": "\n"
+  },
+  {
+    "token_type": 8,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "2. Lag"
+      }
+    ],
+    "level": 3
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "For each band/index, we compute the correlation at different offsets ("
+      },
+      {
+        "token_type": 14,
+        "content": "\\delta t",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": ") and compare the results:"
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 12,
+        "content": "Algorithmically:",
+        "level": 2
+      }
+    ]
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 14,
+    "content": "\n\\begin{array}{l}\n\\mathbf{c}^{\\text{soil}} \\leftarrow \\text{initialized as empty list/vector} \\\\\n\\mathbf{c}^{\\text{veg}} \\leftarrow \\text{initialized as empty list/vector} \\\\\n\\\\\n\\textbf{for } \\delta t \\in \\{-l, \\dots, l\\} \\textbf{ do} \\\\\n    \\quad \\mathbf{y'}_{b,g} = f_{b,g}(\\mathbf{t} + \\delta t) \\\\\n    \\quad \\bar{\\mathbf{y}'}_{b,g} = \\frac{1}{(2025-2016)} \\sum_{y=2016}^{2025} \\mathbf{y'}_{b,g,y} \\\\\n    \\quad \\mathbf{\\hat{y}'}_{b,g,y} = \\mathbf{y'}_{b,g,y} - \\bar{\\mathbf{y}'}_{b,g} \\\\\n    \\quad c^{\\text{soil}}_{b,g, \\delta t} = \\operatorname{Corr}(\\mathbf{\\hat{y}'}_{b,g}, \\mathbf{\\hat{y}}_{\\text{soil}}) \\\\\n    \\quad c^{\\text{veg}}_{b,g, \\delta t} = \\operatorname{Corr}(\\mathbf{\\hat{y}'}_{b,g}, \\mathbf{\\hat{y}}_{\\text{veg}}) \\\\\n\n    \\quad \\mathbf{c}^{\\text{soil}} \\leftarrow \\mathbf{c}^{\\text{soil}} \\cup \\{c^{\\text{soil}}_{b,g, \\delta t}\\} \\\\\n    \\quad \\mathbf{c}^{\\text{veg}} \\leftarrow \\mathbf{c}^{\\text{veg}} \\cup \\{c^{\\text{veg}}_{b,g, \\delta t}\\} \\\\\n\\textbf{end for}\n\\end{array}\n",
+    "inline": false
+  },
+  {
+    "token_type": 1,
+    "content": "\n\n"
+  },
+  {
+    "token_type": 0,
+    "inlineElements": [
+      {
+        "token_type": 9,
+        "content": "and then analyse "
+      },
+      {
+        "token_type": 14,
+        "content": " \\mathbf{c}^{\\text{soil}}",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": " and "
+      },
+      {
+        "token_type": 14,
+        "content": "\\mathbf{c}^{\\text{veg}} ",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": " for an optimal "
+      },
+      {
+        "token_type": 14,
+        "content": "\\delta t",
+        "inline": true
+      },
+      {
+        "token_type": 9,
+        "content": " and check the consistency across years/greenbelts. \n"
+      }
+    ]
+  }
+]

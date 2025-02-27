@@ -20,6 +20,7 @@ ppscore = {git = "https://github.com/FinleyGibson/ppscore.git"}
 folium = "^0.18.0"
 geemap = "^0.35.1"
 jupyter = "^1.1.1"
+pyarrow = "^19.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"

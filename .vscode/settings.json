@@ -9,6 +9,7 @@
         "gemi",
         "gndvi",
         "greensight",
+        "invisseging",
         "ipvi",
         "ireci",
         "mcari",
@@ -26,5 +27,7 @@
         "tndvi",
         "TSAVI",
         "wdvi"
-    ]
+    ],
+    "explorer.excludeGitIgnore": false,
+    "markdown.math.enabled": true
 }

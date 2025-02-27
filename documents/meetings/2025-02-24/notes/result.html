@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+        <html lang="zh">
+<head>
+    <title>Test</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        window.MathJax.Hub.Config({
+            showProcessingMessages: true,
+            messageStyle: 'none',
+            // elements: document.getElementsByClassName('markdown-body'),
+            extensions: ['tex2jax.js'],
+            jax: ['input/TeX', 'output/HTML-CSS'],
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'a'],
+                ignoreClass: 'comment-content'
+            },
+            'HTML-CSS': {
+                availableFonts: ['STIX', 'TeX'],
+                showMathMenu: false
+            }
+        });
+
+        window.MathJax.Hub.Queue(['Typeset', window.MathJax.Hub]);
+
+    </script>
+</head>
+<body><h1>Meeting Notes:</h1><h2>Current issues:</h2><ol><li><p>Annual fluctuation</p><ul><li><p>All bands and, by extension, indices contain a component which is periodic over an annual cycle.
+</p></li><li><p>This annual fluctuation is the major component of the signal—dominating the correlations. 
+</p></li></ul></li><li><p>Lag</p><ul><li><p>It may be that satellite bands/indices lag behind the JULES signal (or vice versa). 
+</p></li><li><p>This <em>may</em> make things appear less correlated than they are in reality. 
+</p></li></ul></li></ol><h2>Solutions</h2><h3>1. Annual Fluctuations </h3><p>The time-series for a particular band/index output <script type="math/tex"> b </script>, in a particular greenbelt <script type="math/tex"> g </script>, is given by some unknown function <script type="math/tex"> f_{b,g} </script>:</p><script type="math/tex; mode=display">
+\mathbf{y}_{b,g} = f_{b,g}(\mathbf{t})
+</script><p>where</p><script type="math/tex; mode=display">
+\begin{aligned}
+    \mathbf{t} &= \{ t_{y} \}_{y=2016,\dots,2025} \\
+    \mathbf{t}_y &= \{ t_{m} \}_{m=1,\dots,12}
+\end{aligned}
+</script><p> 
+and for a single year,</p><script type="math/tex; mode=display">
+\mathbf{y}_{b,g,y} = f_{b,g}(\mathbf{t_y})
+</script><p>We will compute the average time-series for a particular band in a particular greenbelt:</p><script type="math/tex; mode=display">
+\bar{\mathbf{y}}_{b,g} = \frac{1}{(2025-2016)} \sum_{y=2016}^{2025} \mathbf{y}_{b,g,y}
+</script><p>Then calculate the deviation from this mean <script type="math/tex">\mathbf{\hat{y}}_{b,g,y}</script> as:</p><script type="math/tex; mode=display">
+\mathbf{\hat{y}}_{b,g,y} = \mathbf{y}_{b,g,y} - \bar{\mathbf{y}}_{b,g}
+</script><p>Similarly, JULES predictions are given by known functions: </p><script type="math/tex; mode=display">
+\begin{aligned}
+    \mathbf{y}_{\text{soil}} = h_{s, g}(\mathbf{t}) \\
+    \mathbf{y}_{\text{veg}} = h_{v, g}(\mathbf{t})
+\end{aligned}
+</script><p>We can compute their means:</p><script type="math/tex; mode=display">
+\begin{aligned}
+    \bar{\mathbf{y}}_{\text{soil}} = \frac{1}{(2025-2016)} \sum_{y=2016}^{2025} h_{s, g}(\mathbf{t_y}) \\
+    \bar{\mathbf{y}}_{\text{veg}} = \frac{1}{(2025-2016)} \sum_{y=2016}^{2025} h_{v, g}(\mathbf{t_y})
+\end{aligned}
+</script><p>And their deviations:</p><script type="math/tex; mode=display">
+\begin{aligned}
+    \mathbf{\hat{y}}_{\text{soil}} = \mathbf{y}_{\text{soil}} - \bar{\mathbf{y}}_{\text{soil}} \\
+    \mathbf{\hat{y}}_{\text{veg}} = \mathbf{y}_{\text{veg}} - \bar{\mathbf{y}}_{\text{veg}}
+\end{aligned}
+</script><p>We then compute the Pearson correlations of <script type="math/tex"> \mathbf{\hat{y}}_{b,g} </script> with <script type="math/tex"> \mathbf{\hat{y}}_{\text{soil}} </script> and <script type="math/tex"> \mathbf{\hat{y}}_{\text{veg}} </script>, respectively:</p><script type="math/tex; mode=display">
+\begin{aligned}
+c^{\text{soil}}_{b,g} = \operatorname{Corr}(\mathbf{\hat{y}}_{b,g}, \mathbf{\hat{y}}_{\text{soil}}) \\
+c^{\text{veg}}_{b,g} = \operatorname{Corr}(\mathbf{\hat{y}}_{b,g}, \mathbf{\hat{y}}_{\text{veg}})
+\end{aligned}
+</script><p>where <script type="math/tex"> \operatorname{Corr} </script> is the Pearson Correlation Coefficient, given by:</p><script type="math/tex; mode=display">
+\operatorname{Corr}(\mathbf{x}, \mathbf{y}) = \frac{\sum (x_i - \bar{x}) (y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \sqrt{\sum (y_i - \bar{y})^2}}
+</script><h3>Output Matrices:</h3><p>We can then compute and visualize the following matrices:</p><script type="math/tex; mode=display">
+\begin{array}{ccc}
+M_{\text{soil}} & & M_{\text{veg}} \\
+\begin{bmatrix}
+c^{\text{soil}}_{b_1 g_1} & c^{\text{soil}}_{b_1 g_2} & \cdots & c^{\text{soil}}_{b_1 g_m} \\
+c^{\text{soil}}_{b_2 g_1} & c^{\text{soil}}_{b_2 g_2} & \cdots & c^{\text{soil}}_{b_2 g_m} \\
+\vdots & \vdots & \ddots & \vdots \\
+c^{\text{soil}}_{b_n g_1} & c^{\text{soil}}_{b_n g_2} & \cdots & c^{\text{soil}}_{b_n g_m}
+\end{bmatrix}
+ & & 
+\begin{bmatrix}
+c^{\text{veg}}_{b_1 g_1} & c^{\text{veg}}_{b_1 g_2} & \cdots & c^{\text{veg}}_{b_1 g_m} \\
+c^{\text{veg}}_{b_2 g_1} & c^{\text{veg}}_{b_2 g_2} & \cdots & c^{\text{veg}}_{b_2 g_m} \\
+\vdots & \vdots & \ddots & \vdots \\
+c^{\text{veg}}_{b_n g_1} & c^{\text{veg}}_{b_n g_2} & \cdots & c^{\text{veg}}_{b_n g_m}
+\end{bmatrix}
+\end{array}
+</script><p>where <script type="math/tex">n</script> is the number of bands/indices and <script type="math/tex">m</script> is the number of greenbelts.</p><hr/><h3>2. Lag</h3><p>For each band/index, we compute the correlation at different offsets (<script type="math/tex">\delta t</script>) and compare the results:</p><p><strong>Algorithmically:</strong></p><script type="math/tex; mode=display">
+\begin{array}{l}
+\mathbf{c}^{\text{soil}} \leftarrow \text{initialized as empty list/vector} \\
+\mathbf{c}^{\text{veg}} \leftarrow \text{initialized as empty list/vector} \\
+\\
+\textbf{for } \delta t \in \{-l, \dots, l\} \textbf{ do} \\
+    \quad \mathbf{y'}_{b,g} = f_{b,g}(\mathbf{t} + \delta t) \\
+    \quad \bar{\mathbf{y}'}_{b,g} = \frac{1}{(2025-2016)} \sum_{y=2016}^{2025} \mathbf{y'}_{b,g,y} \\
+    \quad \mathbf{\hat{y}'}_{b,g,y} = \mathbf{y'}_{b,g,y} - \bar{\mathbf{y}'}_{b,g} \\
+    \quad c^{\text{soil}}_{b,g, \delta t} = \operatorname{Corr}(\mathbf{\hat{y}'}_{b,g}, \mathbf{\hat{y}}_{\text{soil}}) \\
+    \quad c^{\text{veg}}_{b,g, \delta t} = \operatorname{Corr}(\mathbf{\hat{y}'}_{b,g}, \mathbf{\hat{y}}_{\text{veg}}) \\
+
+    \quad \mathbf{c}^{\text{soil}} \leftarrow \mathbf{c}^{\text{soil}} \cup \{c^{\text{soil}}_{b,g, \delta t}\} \\
+    \quad \mathbf{c}^{\text{veg}} \leftarrow \mathbf{c}^{\text{veg}} \cup \{c^{\text{veg}}_{b,g, \delta t}\} \\
+\textbf{end for}
+\end{array}
+</script><p>and then analyse <script type="math/tex"> \mathbf{c}^{\text{soil}}</script> and <script type="math/tex">\mathbf{c}^{\text{veg}} </script> for an optimal <script type="math/tex">\delta t</script> and check the consistency across years/greenbelts. 
+</p></body>
+</html>
