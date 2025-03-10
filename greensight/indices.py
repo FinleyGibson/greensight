@@ -1,4 +1,4 @@
-### Version 1. Author Dr Finely Gibson 2024-2025 
+### Version 1. Author Dr Finely Gibson 2024-2025
 
 # sentinel2_indices.py
 
@@ -76,11 +76,10 @@ def add_pvi(image):
 def add_ipvi(image):
     # IPVI = (NIR - Red) / (NIR + Red + Green)
     ipvi = image.expression(
-        "(nir - red) / (nir + red + green)",
+        "(nir - red) / (nir + red )",
         {
             "nir": image.select("B8"),
             "red": image.select("B4"),
-            "green": image.select("B3"),
         },
     )
     return image.addBands(ipvi.rename("ipvi"))
@@ -97,9 +96,9 @@ def add_wdvi(image):
 
 
 def add_tndvi(image):
-    # TNDVI = (NIR - Red) / (NIR + Red + 0.08)
+    # TNDVI = (NIR - Red) / (NIR + Red + 0.5)
     tndvi = image.expression(
-        "(nir - red) / (nir + red + 0.08)",
+        "(nir - red) / (nir + red + 0.5)",
         {"nir": image.select("B8"), "red": image.select("B4")},
     )
     return image.addBands(tndvi.rename("tndvi"))
@@ -258,9 +257,9 @@ def add_bi(image):
 
 
 def add_bi2(image):
-    # BI2 = (Green + Red) - NIR
+    # BI2 = sqrt(Green ** 2 + Red ** 2 + NIR**2) / 3
     bi2 = image.expression(
-        "(green + red) - nir",
+        "sqrt(green ** 2 + red ** 2 + nir ** 2) / 3",
         {
             "green": image.select("B3"),
             "red": image.select("B4"),
